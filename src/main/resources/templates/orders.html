@@ -104,14 +104,12 @@
                     <td colspan="2"> На данный момент билентов в выбранную страну нет</td>
                 </tr>
                 <tr class="firstTR" th:if="${!orders.empty}">
-                    <td><p>Название путешествия</p></td>
                     <td><p>Дата</p></td>
                     <td><p>Страна</p></td>
                     <td><p>Город</p></td>
                     <td>Бронирование</td>
                 </tr>
                 <tr th:each="order : ${orders}">
-                    <td class="line"><p th:text="${order.getOrderName()}"></p></td>
                     <td class="line"><p th:text="${order.getDate()}"></p></td>
                     <td class="line"><p th:text="${order.getCountry()}"></p>
                     <td class="line"><p th:text="${order.getCity()}"></p>

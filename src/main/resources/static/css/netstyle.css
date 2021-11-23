@@ -1,0 +1,182 @@
+
+@font-face {
+    font-family: 'InterBold';
+    src: url(../fonts/InterBold.otf);
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'InterBlack';
+    src: url(../fonts/InterBlack.otf);
+    font-style: normal;
+    font-weight: normal;
+}
+
+.netwrapper{
+    opacity: 0;
+    width: 92%;
+    height: 100%;
+    margin: 0 auto;
+}
+
+
+.selfcard{
+    background-color: black;
+    margin-top: 10%;
+    margin-left: 0;
+    width: 20%;
+    height: 30%;
+}
+
+.shortmessages{
+    background-color: black;
+    margin-left: 5%;
+    width: 40%;
+    height: 100%;
+}
+
+.subscribes{
+    background-color: black;
+    margin-top: 10%;
+    margin-left: 5%;
+    width: 20%;
+    height: 50%;
+}
+
+
+.login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,.5);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 40px;
+}
+
+.login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+}
+
+.login-box .user-box {
+    position: relative;
+}
+
+.login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+.login-box .user-box label {
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color:#FFE47A;
+    font-size: 12px;
+}
+
+.login-box button {
+    font-family: InterBold;
+    text-transform: uppercase;
+    outline: 0;
+    background-image: linear-gradient(to right, #3D7EAA 0%, #FFE47A 51%, #3D7EAA 100%);
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    display: block;
+    transition: 0.5s;
+    background-size: 200% auto;
+}
+
+.login-box button:hover{
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.buttonlog {
+    background-image: linear-gradient(to right, #3D7EAA 0%, #FFE47A 51%, #3D7EAA 100%);
+}
+
+.buttonlog {
+    margin: 10px;
+    padding: 10px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    z-index: 51;
+}
+
+.buttonlog:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.textarea {
+    background: #e5a01b; /* Цвет фона */
+    border: 2px solid #a9c358; /* Параметры рамки */
+    padding: 10%; /* Поля */
+    width: 100%; /* Ширина */
+    height: 200px; /* Высота */
+    box-sizing: border-box; /* Алгоритм расчёта ширины */
+    font-size: 14px; /* Размер шрифта */
+}
+
+.backimg{
+    top: 0;
+    left: 0;
+    position: absolute;
+    object-fit: cover;
+    height: 100vh;
+    width: 100vw;
+    filter: blur(10px);
+}
+
+.signin {
+    font-family: InterBlack;
+}
+
+.login-box .signin{
+    margin-bottom: 5%;
+    font-size: 30px;
+    font-family: InterBlack;
+    text-align: center;
+    color: #ffffff;
+}
+
+td{
+    padding: 20px;
+}

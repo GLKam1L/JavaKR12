@@ -21,10 +21,13 @@
                 <nav class="header_menu">
                     <ul class="header_list">
                         <li>
-                            <a th:href="@{/}" class="header_link">Главная</a>
+                            <a th:href="@{/posts}" class="header_link">Главная</a>
                         </li>
                         <li>
-                            <a th:href="@{/maldives}" class="header_link">Страны</a>
+                            <a th:href="@{/subs}" class="header_link">Подписаться</a>
+                        </li>
+                        <li>
+                            <a th:href="@{/}" class="header_link">Опубликовать</a>
                         </li>
                         <li>
                             <form th:action="@{/logout}" method="post">
@@ -38,6 +41,7 @@
     </header>
 
     <img th:src="@{/images/background.jpg}" alt="">
+
 
     <div class="profile">
         <h1 class="historyh1">Личный кабинет</h1>
@@ -55,33 +59,23 @@
                 <p th:text="'Имя пользователя: ' + ${user.getUsername()}"></p>
                 <p th:text="'Адрес электронной почты: ' + ${user.getEmail()}"></p>
                 <p th:text="'Номер телефона: ' + ${user.getPhone()}"></p>
+                <p style="color:#FFE47A" th:text="'Номер пользователя: ' + ${user.getId()}"></p>
 
             </div>
         </div>
-        <h2 class="historyh1">Заказы</h2>
+        <h2 class="historyh1">Ваши подписки</h2>
         <div class="history">
             <table>
                 <tbody>
                 <tr th:if="${orders.empty}">
-                    <td colspan="2">У вас пока нет заказов</td>
+                    <td colspan="2">Пока что вы ни на кого не подписаны</td>
                 </tr>
                 <tr class="firstTR" th:if="${!orders.empty}">
-                    <td><p>Название путешествия</p></td>
-                    <td><p>Дата</p></td>
-                    <td><p>Страна</p></td>
-                    <td><p>Город</p></td>
-                    <td><p>Аэропорт вылета</p></td>
-                    <td><p>Аэропорт прилета</p></td>
-                    <td><p>Номер рейса</p></td>
+                    <td><p>Имя пользователя</p></td>
                 </tr>
-                <tr th:each="order : ${orders}">
-                    <td><p th:text="${order.getOrderName()}"></p></td>
-                    <td><p th:text="${order.getDate()}"></p></td>
-                    <td><p th:text="${order.getCountry()}"></p></td>
-                    <td><p th:text="${order.getCity()}"></p></td>
-                    <td><p th:text="${order.getAirportDeparture()}"></p></td>
-                    <td><p th:text="${order.getAirportArrive()}"></p></td>
-                    <td><p th:text="${order.getFlightN()}"></p></td>
+                <tr th:each="user : ${users}">
+                    <td><p th:text="${user.getUserName()}"></p></td>
+
                 </tr>
                 </tbody>
             </table>

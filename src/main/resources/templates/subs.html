@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link media="all" rel="stylesheet" th:href="@{/css/loginstyle.css}" type="text/css"/>
+</head>
+<body>
+
+
+
+<img th:src="@{/images/back2.jpeg}" alt="">
+<div class="login-page">
+  <p class="signin">Подпишитесь</p>
+  <form class="login-form" th:action="@{/subs}" method="post" autocomplete="off">
+    <input type="text" placeholder="Введите номер пользователя" name="subses" required/>
+    <button type="submit">Подписаться</button>
+    <p class="message2">Номер пользователя указывается <a th:href="@{/user}">в личном кабинете</a></p>
+  </form>
+</div>
+</body>
+</html>

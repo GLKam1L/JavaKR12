@@ -1,21 +1,19 @@
 package ru.mirea.tourismapp.domain;
 
+
 import lombok.Data;
 
 import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name="orders")
+@Table(name="msges")
 
-public class Order {
+public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String country;
-    private String date;
-    private String airportDeparture;
-    private String airportArrive;
+    private String message;
     private Long userId;
-    private String city;
+    private String postDate;
 }

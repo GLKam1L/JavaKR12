@@ -1,0 +1,26 @@
+version: '3'
+services:
+  nginx:
+    container_name:some-nginx
+    image: ngin:1.13
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - app
+  app:
+    image: tourismapp
+    build:
+      context: .
+    ports:
+      - "8080:8080"
+    container_name: app
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/Tourismapp
+      - SPRING_DATASOURCE_USERNAME=admin
+      - SPRING_DATASOURCE_PASSWORD=123
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    command: mvn clean spring-boot:run

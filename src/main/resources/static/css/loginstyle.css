@@ -127,3 +127,17 @@ input{
     color: #FFE47A;
     font-size: 16px;
 }
+
+.message2 {
+    font-family: InterBold;
+    margin-bottom: 7%;
+    color: white;
+    font-size: 12px;
+}
+
+.message2 a {
+    font-family: InterBold;
+    text-decoration: none;
+    color: #FFE47A;
+    font-size: 12px;
+}

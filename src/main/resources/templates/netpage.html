@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml" lang="en"
+      xmlns:sec="http://www.springframework.org/schema/security">
+<head>
+
+    <!-- Заголовок страницы в браузере -->
+    <title>Shortell</title>
+
+    <meta charset="UTF-8">
+    <!-- Адаптив -->
+    <meta name="viewport" content="width=device-width">
+    <style>
+        a {
+            text-decoration: none;
+        }
+        textarea {
+            font-family: InterBold;
+            background: #ffffff; /* Цвет фона */
+            border: 2px solid #FFE47A; /* Параметры рамки */
+            border-radius: 10px;
+            padding: 10px; /* Поля */
+            width: 100%; /* Ширина */
+            height: 150px; /* Высота */
+            box-sizing: border-box; /* Алгоритм расчёта ширины */
+            font-size: 14px; /* Размер шрифта */
+            resize: none;
+            margin-bottom: 2%;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            th:src="@{https://code.jquery.com/jquery-3.4.1.slim.min.js}"></script>
+
+    <script th:src="@{/jscripts/header.js}"></script>
+
+    <!-- Подключаем CSS -->
+    <link rel="stylesheet" href="css/style.css" th:href="@{css/style.css}">
+    <link rel="stylesheet" href="css/style.css" th:href="@{css/stylemk.css}">
+    <link media="all" rel="stylesheet" th:href="@{/css/netstyle.css}" type="text/css"/>
+    <!-- Кодировка страницы -->
+
+    <!-- Адаптив -->
+</head>
+<!-- Отображаемое тело страницы -->
+<body>
+<!-- Оболочка для демонстрации -->
+<header class="headerm">
+    <div class="containerm">
+        <div class="headerm_body">
+            <a th:href="@{/}" class="headerm_logo">
+                <img th:src="@{/images/logo12.png}" class="headerm_logo">
+            </a>
+            <div class="headerm_burger">
+                <span></span>
+            </div>
+            <nav class="headerm_menu">
+                <ul class="headerm_list">
+                    <li>
+                        <a sec:authorize="isAnonymous()" th:href="@{/login}" class="headerm_link">Войти</a>
+                    </li>
+                    <li>
+                        <a sec:authorize="isAnonymous()" th:href="@{/registration}" class="headerm_link">Регистрация</a>
+                    </li>
+                    <li>
+                        <p class="headerm_link" sec:authorize="hasAuthority('USER')">Добрый день, <span
+                                class="headerm_link" th:text="${name}"></span>
+                    </li>
+                    <li>
+                        <form th:if="${user != 'anonymous'}" th:action="@{/logout}" method="post">
+                            <input class="buttonlogout" type="submit" value="Выйти">
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+<img class="backimg" th:src="@{/images/back1.jpeg}" alt="">
+
+<sec_head1 class="sec_head1">
+    <sec_nav class="sec_head_menu sec_menu">
+        <a class="sec_menu_link"></a>
+        <a th:href="@{/posts}" class="sec_menu_link">Лента публикаций</a>
+        <a class="sec_menu_link"></a>
+        <a th:href="@{/subs}" class="sec_menu_link">Подписки</a>
+        <a class="sec_menu_link"></a>
+        <a th:href="@{/user}" class="sec_menu_link">Личный кабинет</a>
+        <a class="sec_menu_link"></a>
+    </sec_nav>
+</sec_head1>
+
+    <!-- <div class="selfcard">
+        <form class="registration-form" th:action="@{/netpage}" method="post" autocomplete="off">
+            <input type="text" name="message" required>
+            <button type="submit">Опубликовать</button>
+        </form>
+    </div>
+
+    -->
+
+    <div class="login-box">
+        <p class="signin">Расскажите что-нибудь</p>
+        <form class="registration-form" th:action="@{/netpage}" method="post" autocomplete="off">
+                <textarea name="message"></textarea>
+            <button type="submit">Опубликовать</button>
+        </form>
+    </div>
+
+</div>
+
+<!--
+<div class="registration-page">
+  <p class="registration">Регистрация</p>
+  <form class="registration-form" th:action="@{/registration}" method="post" autocomplete="off">
+    <input type="text" name="username" placeholder="Имя пользователя" required>
+    <input type="text" name="password" placeholder="Пароль" required>
+    <input type="text" name="name" placeholder="Имя" required>
+    <input type="text" name="email" placeholder="Адрес электронной почты" required>
+    <input type="text" name="phone" placeholder="Номер телефона" required>
+    <button type="submit">зарегистрироваться</button>
+  </form>
+  <p class="message">Уже есть аккаунт? <a th:href="@{/login}">Войти</a></p>
+</div>
+
+</body>
+</html>
+-->

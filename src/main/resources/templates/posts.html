@@ -4,7 +4,7 @@
 <head>
 
     <!-- Заголовок страницы в браузере -->
-    <title>Индия</title>
+    <title>Shortell</title>
 
     <meta charset="UTF-8">
     <!-- Адаптив -->
@@ -23,6 +23,7 @@
     <!-- Подключаем CSS -->
     <link rel="stylesheet" href="css/style.css" th:href="@{css/style.css}">
     <link rel="stylesheet" href="css/style.css" th:href="@{css/stylemk.css}">
+    <link media="all" rel="stylesheet" th:href="@{/css/netstyle.css}" type="text/css"/>
     <!-- Кодировка страницы -->
 
     <!-- Адаптив -->
@@ -48,10 +49,8 @@
                         <a sec:authorize="isAnonymous()" th:href="@{/registration}" class="headerm_link">Регистрация</a>
                     </li>
                     <li>
-                        <p class="headerm_link" sec:authorize="hasAuthority('USER')">Добрый день, <span class="headerm_link" th:text="${name}"></span>
-                    </li>
-                    <li>
-                        <a sec:authorize="not isAnonymous()" th:href="@{/user}" class="headerm_link">Личный кабинет</a>
+                        <p class="headerm_link" sec:authorize="hasAuthority('USER')">Добрый день, <span
+                                class="headerm_link" th:text="${name}"></span>
                     </li>
                     <li>
                         <form th:if="${user != 'anonymous'}" th:action="@{/logout}" method="post">
@@ -64,56 +63,38 @@
     </div>
 </header>
 
-
 <sec_head1 class="sec_head1">
     <sec_nav class="sec_head_menu sec_menu">
         <a class="sec_menu_link"></a>
-        <a th:href="@{/australia}" class="sec_menu_link">Австралия</a>
+        <a th:href="@{/netpage}" class="sec_menu_link tickbut">Расскажите о чем-нибудь</a>
         <a class="sec_menu_link"></a>
-        <a th:href="@{/usa}" class="sec_menu_link">США</a>
+        <a th:href="@{/posts}" style="color:#FFE47A" class="sec_menu_link">Лента публикаций</a>
         <a class="sec_menu_link"></a>
-        <a th:href="@{/maldives}" class="sec_menu_link">Мальдивы</a>
+        <a th:href="@{/subs}" class="sec_menu_link">Подписки</a>
         <a class="sec_menu_link"></a>
-        <a th:href="@{india}" style="color:#FFE47A" class="sec_menu_link">Индия</a>
-        <a class="sec_menu_link"></a>
-        <a th:href="@{emirates}" class="sec_menu_link">ОАЭ</a>
-        <a class="sec_menu_link"></a>
-        <a th:href="@{/orders?country=india}" class="sec_menu_link tickbut">Билеты</a>
+        <a th:href="@{/user}" class="sec_menu_link">Личный кабинет</a>
         <a class="sec_menu_link"></a>
     </sec_nav>
 </sec_head1>
 
-<!-- Контент -->
-<div class="fullscreen">
-    <div class="fullscreen__content">
-        <h1 class="fullscreen__title _anim-items _anim-no-hide">Индия</h1>
-        <div class="fullscreen__text _anim-items _anim-no-hide">Мальдивы
-        </div>
-    </div>
-    <div class="fullscreen__image">
-        <img th:src="@{/images/indiaM.jpg}" alt="">
-    </div>
-</div>
-<div class="page">
-    <div class="text">
-        <div class="text__container _container">
-            <h2 class="text__title">Мальдивы</h2>
-            <div class="text__item _anim-items">
-                <p class="_anim-show">
-                    Мальдивы
-                </p>
-            </div>
-        </div>
-        <div class="moments">
-            <div class="moments__container _container">
-                <a th:href="@{/orders?country=india}" class="buttonlog">Купить билеты</a>
-            </div>
-        </div>
+<div class="login-box">
+    <div class="tabtest">
+        <table>
+            <tbody>
+            <tr>
+                <td><p>Имя пользователя</p></td>
+                <td><p>Дата публикации</p></td>
+                <td><p>Пост</p></td>
+            </tr>
+            <tr th:each="message : ${messages}">
+                <td><p>GLK</p></td>
+                <td><p th:text="${message.getPostDate()}"></p></td>
+                <td><p th:text="${message.getMessage()}"></p></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
 </div>
-</div>
-
-<script th:src="@{/jscripts/scriptmk.js}" type="text/javascript"></script>
 
 </body>
 </html>
